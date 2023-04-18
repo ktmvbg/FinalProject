@@ -15,20 +15,6 @@ class UserOutput:
         self.fullname = user.fullname
         self.account_type = user.account_type
 
-class UserCourseOutput:
-    id: int
-    username: str
-    fullname: str
-    account_type: str
-    role_id: int
-    
-    def __init__(self, user: User, role_id: int):
-        self.id = user.id
-        self.username = user.username
-        self.fullname = user.fullname
-        self.account_type = user.account_type
-        self.role_id = role_id
-    
 class CreateUserInput(BaseModel):
     username: str
     fullname: str
@@ -40,5 +26,4 @@ class UpdateUserInput(BaseModel):
     fullname: Optional[str]
     password: Optional[str]
     account_type: Optional[int]
-class CreateUsersInput(BaseModel):
-    users: List[str]
+

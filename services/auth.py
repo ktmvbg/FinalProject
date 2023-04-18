@@ -85,7 +85,7 @@ def check_permission(session, user_id, course_id):
     return True
 
 
-def check_is_teacher(session, user_id):
+def check_is_admin(session, user_id):
     user = session.query(User).filter_by(id=user_id).first()
     if not user:
         return False

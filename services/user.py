@@ -92,17 +92,3 @@ def delete_user(session, user_id):
     session.delete(user)
     session.commit()
     return (True, "Deleted {}".format(user_id))
-
-
-def add_students(session, student_ids):
-    count = 0
-    for student_id in student_ids:
-        student = session.query(User).filter_by(username=student_id).first()
-        if student:
-            continue
-        new_student = User(username=student_id, password=auth.get_password_hash(
-            '123456'), fullname=student_id, account_type=1)
-        session.add(new_student)
-        count += 1
-    session.commit()
-    return (True, "Created {} user(s)".format(count))
